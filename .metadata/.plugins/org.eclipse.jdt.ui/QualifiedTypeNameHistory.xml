@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.company.app.MessageBean"/>
+    <fullyQualifiedTypeName name="com.company.app.LgTV"/>
+    <fullyQualifiedTypeName name="com.company.app.SamsungTV"/>
+    <fullyQualifiedTypeName name="com.company.poly.SamsungTV"/>
+    <fullyQualifiedTypeName name="com.company.poly.TV"/>
+    <fullyQualifiedTypeName name="com.company.poly.LgTV"/>
+    <fullyQualifiedTypeName name="com.company.poly.SonySpeaker"/>
+    <fullyQualifiedTypeName name="com.company.poly.AppleSpeaker"/>
+    <fullyQualifiedTypeName name="com.conpany.app.MessageBean"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="com.conpany.poly.TV"/>
+</qualifiedTypeNameHistroy>
