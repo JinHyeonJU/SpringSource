@@ -1,16 +1,30 @@
 package com.conpany.poly;
 
+import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("tv") //객체 생성 자동
+				 // = <bean id="tv" class="com.conpany.poly.LgTV" />
 public class LgTV implements TV{
-	private Speaker speaker; //멤버변수로 선언
-	private int price;
 	
-		
-	public void setPrice(int price) {
-			this.price = price;
-	}
-	public void setSpeaker(Speaker speker) {
-		this.speaker = speaker;
-	}
+	//적절한 시점에 생성된 객체 주입 -@Autowired, @Inject
+	//이름 구별용 - @Qualifier
+	//객체 주입 + 이름 구별 - @Resource 
+	
+	//@Autowired
+	@Inject
+	@Qualifier("apple") //단독사용 불가(주입대상이 여러개인 경우 //특정 객체 지정시 사용) 
+	private Speaker speaker; //멤버변수로 선언
+	/*
+	 * private int price;
+	 * 
+	 * 
+	 * public void setPrice(int price) { this.price = price; } public void
+	 * setSpeaker(Speaker speker) { this.speaker = speaker; }
+	 */
 	/*
 	 * public LgTV() { speaker = new SonySpeaker(); }
 	 */
