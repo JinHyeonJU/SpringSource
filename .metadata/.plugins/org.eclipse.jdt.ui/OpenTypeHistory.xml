@@ -2,4 +2,6 @@
 <typeInfoHistroy>
     <typeInfo handle="=test/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.company.poly{TV.java[TV" modifiers="513" timestamp="1609354612510"/>
     <typeInfo handle="=test/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.company.poly{Speaker.java[Speaker" modifiers="513" timestamp="1609355481480"/>
+    <typeInfo handle="=simpleMember/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.company.service{MemberService.java[MemberService" modifiers="513" timestamp="1609791480307"/>
+    <typeInfo handle="=simpleboard_cp_jdbc/C:\/Users\/PC\/.m2\/repository\/org\/springframework\/spring-jdbc\/5.1.12.RELEASE\/spring-jdbc-5.1.12.RELEASE.jar=/maven.pomderived=/true=/=/org.eclipse.jst.component.dependency=/\/WEB-INF\/lib=/=/maven.pomderived=/true=/=/org.eclipse.jst.component.archivename=/spring-jdbc-5.1.12.RELEASE.jar=/=/maven.groupId=/org.springframework=/=/maven.artifactId=/spring-jdbc=/=/maven.version=/5.1.12.RELEASE=/=/maven.scope=/compile=/&lt;org.springframework.jdbc.core(RowMapper.class[RowMapper" modifiers="1537" timestamp="1609800504338"/>
 </typeInfoHistroy>

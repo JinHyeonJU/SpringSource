@@ -6,26 +6,32 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.company.domain.BoardVO;
-import static com.company.persistence.JDBCUtil.*;
 
 // @Repository : bean 생성(=new BoardDAO())
 
 @Repository
 public class BoardDAO {
 	
+	@Autowired
+	private DataSource ds;
+	
+	
 	private Connection con;
 	private PreparedStatement pstmt;
-	private ResultSet rx;
+	private ResultSet rs;
 	
 	
 	public int insert(BoardVO vo) {
 		int result =0;
 		
 		try {
-			con = getConnection();
+			con = ds.getConnection();
 			String sql = "insert into spring_board(bno,title,content,writer) "
 					+ "values(seq_board.nextval,?,?,?)";
 			pstmt = con.prepareStatement("insert into spring");
@@ -33,17 +39,10 @@ public class BoardDAO {
 			pstmt.setString(2, vo.getContent());
 			pstmt.setString(3, vo.getWriter());
 			result = pstmt.executeUpdate();
-			if(result>0) commit(con);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			rollback(con);
-		} finally {
-			close(pstmt);
-			close(con);
-			
-		}
-		
-		
+		} 
 		return result;
 	}
 	public int update(BoardVO vo) {
@@ -54,16 +53,65 @@ public class BoardDAO {
 	public int delete(BoardVO vo) {
 		int result =0;
 		
+		try {
+			String sql = "delete form spring_board where bno=?";
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, vo.getBno());
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 	public BoardVO getRow(int bno) {
 		BoardVO vo = null;
 		
+		try {
+			String sql = "select * from spring_board where bno=?";
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo = new BoardVO();
+				vo.setBno(rs.getInt("bno"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setWriter(rs.getString("content"));
+				vo.setRegdate(rs.getDate("regdate"));
+				vo.setUpdateupdate(rs.getDate("updateupdate"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return vo;
 	}
 	public List<BoardVO> getList() {
-		List<BoardVO> list = new ArrayList<>();
+		List<BoardVO> list = new ArrayList<BoardVO>();
 		
+		try {
+			con = ds.getConnection();
+			String sql = "select * from spring_board";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardVO vo = new BoardVO();
+				vo.setBno(rs.getInt("bno"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setWriter(rs.getString("wirter"));
+				vo.setRegdate(rs.getDate("regdate"));
+				vo.setUpdateupdate(rs.getDate("updateupdate"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 }
