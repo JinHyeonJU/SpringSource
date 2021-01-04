@@ -21,5 +21,6 @@
 	<!-- Speaker 객체 초기화를 Setter 메소드 통해서 하는 방식 -->
 	<bean id="lg" class="com.conpany.poly.LgTV">
 		<property name="speaker" ref="apple" />
+		<property name="price" value="3500000"></property>
 	</bean>
 </beans>
