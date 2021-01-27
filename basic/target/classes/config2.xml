@@ -3,20 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<context:component-scan base-package="com.company.annotation" />
-	
-	
-	
-	
-	
-	<!-- 어노테이션을 활성화 시키기 위한 코드 -->
-	<!-- <context:annotation-config /> -->
-	
-	<!-- 객체 생성 -->
-	<!-- <bean id="tv" class="com.conpany.poly.LgTV" />
-	<bean id="sony" class="com.conpany.poly.SonySpeaker" />
-	<bean id="apple" class="com.conpany.poly.AppleSpeaker" /> -->
-	
-	
-	
+	<bean id="student" class="com.company.student.Student">
+		<constructor-arg value="김공룡"  />
+		<constructor-arg value="20000"  />
+		<constructor-arg value="321"  />
+		<constructor-arg value="1"  />
+	</bean>
+
+	<bean id="info" class="com.company.student.StudentInfo">
+		<constructor-arg ref="student" />
+	</bean>
+
 </beans>

@@ -8,37 +8,42 @@ import org.springframework.stereotype.Service;
 import com.company.domain.BoardVO;
 import com.company.persistence.BoardDAO;
 
-@Service("service") //bean(객체) 생성
+//@Service : 빈 생성
+@Service("service")
 public class BoardServiceImpl implements BoardService {
-
-	@Autowired //이미 생성된 bean을 주입
+	
+	@Autowired // @Autowired : 이미 생성된 빈을 주입
 	private BoardDAO dao;
 	
+	
+
 	@Override
-	public boolean insertBoard(BoardVO vo) {
-		return dao.insert(vo)>0?true:false;
+	public int InsertBoard(BoardVO vo) {
+
+		return dao.insert(vo);
 	}
 
 	@Override
-	public int updateBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int UpdateBoard(BoardVO vo) {
+
+		return dao.UpdateBoard(vo);
 	}
 
 	@Override
-	public int deleteBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int DeleteBoard(BoardVO vo) {
+
+		return dao.DeleteBoard(vo);
 	}
 
 	@Override
 	public BoardVO getRow(int bno) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return dao.getRow(bno);
 	}
 
 	@Override
 	public List<BoardVO> getList() {
+
 		return dao.getList();
 	}
 

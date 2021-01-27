@@ -15,7 +15,7 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO dao;
 	
 	@Override
-	public int insertBoard(BoardVO vo) {
+	public boolean insertBoard(BoardVO vo) {
 		return dao.insert(vo)>0?true:false;
 	}
 

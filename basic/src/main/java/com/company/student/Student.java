@@ -1,11 +1,20 @@
 package com.company.student;
 
 public class Student {
+
 	private String name;
 	private String age;
 	private String gradeName;
 	private String classNum;
 	
+	public Student(String name, String age, String gradeName, String classNum) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.gradeName = gradeName;
+		this.classNum = classNum;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -37,12 +46,7 @@ public class Student {
 	public void setClassNum(String classNum) {
 		this.classNum = classNum;
 	}
-
-	public Student(String name, String age, String gradeName, String classNum) {
-		super();
-		this.name = name;
-		this.age = age;
-		this.gradeName = gradeName;
-		this.classNum = classNum;
-	}
+	
+	
+	
 }

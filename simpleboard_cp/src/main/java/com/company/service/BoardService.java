@@ -5,9 +5,11 @@ import java.util.List;
 import com.company.domain.BoardVO;
 
 public interface BoardService {
-	int insertBoard(BoardVO vo);
-	int updateBoard(BoardVO vo);
-	int deleteBoard(BoardVO vo);
+	
+	int InsertBoard(BoardVO vo);
+	int UpdateBoard(BoardVO vo);
+	int DeleteBoard(BoardVO vo);
+	
 	BoardVO getRow(int bno);
 	List<BoardVO> getList();
 }

@@ -24,8 +24,8 @@ public class BoardClient {
 		vo.setTitle("스프링 컨테이너");
 		vo.setContent("스프링 주요 개념 - DI");
 		vo.setWriter("홍길동");
-		int result = service.insertBoard(vo);
-		if(result>0)
+		boolean result = service.insertBoard(vo);
+		if(result=true)
 			System.out.println("삽입 성공");
 		
 	}

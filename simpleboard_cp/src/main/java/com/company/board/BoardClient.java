@@ -7,27 +7,61 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.company.domain.BoardVO;
 import com.company.service.BoardService;
-import com.company.service.BoardServiceImpl;
 
 public class BoardClient {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("board_config.xml");
-		//서비스 호출
-		BoardService service = (BoardService) ctx.getBean("service");
-		
-		//전체 리스트 가져오기
-		List<BoardVO> list = service.getList();
-		
-		
-		BoardVO vo = new BoardVO();
-		vo.setTitle("스프링 컨테이너");
-		vo.setContent("스프링 주요 개념 - DI");
-		vo.setWriter("홍길동");
-		int result = service.insertBoard(vo);
-		if(result>0)
-			System.out.println("삽입 성공");
-		
-	}
 
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("BoardConfig.xml");
+
+		// 서비스 호출
+		BoardService service = (BoardService) ctx.getBean("service");
+		BoardVO vo = new BoardVO();
+		vo.setTitle("씨피");
+		vo.setContent("연휴끝남");
+		vo.setWriter("슬픔");
+
+		// 삽입
+		int result = service.InsertBoard(vo);
+		if (result > 0) {
+			System.out.println("삽입 성공");
+		} else {
+			System.out.println("삽입 실패");
+		}
+
+		// 전체 리스트
+		List<BoardVO> list = service.getList();
+		for (BoardVO vo1 : list) {
+			System.out.println(vo1.toString());
+		}
+
+		// 게시글 하나 가져오기
+		BoardVO voinfo = service.getRow(3);
+		System.out.println(voinfo.toString());
+
+//		// 게시글 하나 삭제하기
+//		BoardVO delRow = new BoardVO();
+//		delRow.setBno(11);
+//		int Dresult = service.DeleteBoard(delRow);
+//
+//		if (Dresult > 0) {
+//			System.out.println("삭제 성공");	
+//			} else {
+//			System.out.println("삭제 실패");
+//		}
+//
+//		// 게시글 수정하기
+//		BoardVO ModiRow = new BoardVO();
+//
+//		ModiRow.setBno(2);
+//		ModiRow.setTitle("2021 새해");
+//		ModiRow.setContent("실감이 안남");
+//
+//		int Modify = service.UpdateBoard(ModiRow);
+//		if (Modify > 0) {
+//			System.out.println("수정 성공");
+//		} else {
+//			System.out.println("수정 실패");
+//		}
+	}
 }
